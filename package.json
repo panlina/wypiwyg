@@ -1,0 +1,10 @@
+{
+  "name": "wypiwyg",
+  "version": "0.0.0",
+  "description": "What You Put Is What You Get",
+  "author": "Jack Lu <jacklu@jacklu.me>",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.0"
+  }
+}

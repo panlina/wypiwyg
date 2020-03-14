@@ -9,8 +9,8 @@ it('wypiwyg', function (done) {
 			body: 'a'
 		}, () => {
 			request.get('http://localhost:8000/a', (error, response) => {
-				var contentType = require('content-type').parse(response.headers['content-type']);
-				assert.equal(contentType.type, 'a/a');
+				var contentType = response.headers['content-type'];
+				assert.equal(contentType, 'a/a');
 				assert.equal(response.body, 'a');
 				done();
 			});

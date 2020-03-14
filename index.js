@@ -2,7 +2,7 @@ var express = require('express');
 function App() {
 	var content = {};
 	var app = express();
-	app.use(express.text({ type: "*/*" }));
+	app.use(express.raw({ type: "*/*" }));
 	app.put('*', (req, res) => {
 		res.status(req.url in content ? 204 : 201);
 		content[req.url] = {
@@ -14,7 +14,7 @@ function App() {
 	app.get('*', (req, res) => {
 		if (req.url in content) {
 			var _content = content[req.url];
-			res.status(200).set('Content-Type', _content.type || 'text/plain').send(_content.body);
+			res.status(200).set('Content-Type', _content.type).send(_content.body);
 		} else
 			res.status(404).end();
 	});

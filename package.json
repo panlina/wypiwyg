@@ -9,7 +9,6 @@
     "express": "^4.17.0"
   },
   "devDependencies": {
-    "content-type": "^1.0.4",
     "mocha": "^7.1.0",
     "request": "^2.88.2"
   },

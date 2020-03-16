@@ -18,6 +18,13 @@ function App() {
 		} else
 			res.status(404).end();
 	});
+	app.delete('*', (req, res) => {
+		if (req.url in content) {
+			delete content[req.url];
+			res.status(204).end();
+		} else
+			res.status(404).end();
+	});
 	return app;
 }
 module.exports = App;

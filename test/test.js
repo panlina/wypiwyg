@@ -47,3 +47,31 @@ it('20x', function (done) {
 	});
 	var port = server.address().port;
 });
+it('delete', function (done) {
+	var app = App();
+	var server = app.listen(() => {
+		request.put(`http://localhost:${port}/a`, {
+			headers: { 'Content-Type': 'a/a' },
+			body: 'a'
+		}, () => {
+			request.delete(`http://localhost:${port}/a`, (error, response) => {
+				assert.equal(response.statusCode, 204);
+				request.get(`http://localhost:${port}/a`, (error, response) => {
+					assert.equal(response.statusCode, 404);
+					done();
+				});
+			});
+		});
+	});
+	var port = server.address().port;
+});
+it('delete.404', function (done) {
+	var app = App();
+	var server = app.listen(() => {
+		request.delete(`http://localhost:${port}/a`, (error, response) => {
+			assert.equal(response.statusCode, 404);
+			done();
+		});
+	});
+	var port = server.address().port;
+});

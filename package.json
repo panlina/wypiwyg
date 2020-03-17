@@ -1,7 +1,7 @@
 {
   "name": "wypiwyg",
   "version": "0.0.0",
-  "description": "What You Put Is What You Get",
+  "description": "A RESTful web service that What You PUT Is What You GET",
   "author": "Jack Lu <jacklu@jacklu.me>",
   "license": "ISC",
   "dependencies": {
